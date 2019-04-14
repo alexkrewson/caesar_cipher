@@ -5,21 +5,31 @@ def caesar_cipher(inputStr, key)
     @key = key
 
     inputArr = inputStr.split('')
+
     outputArr = inputArr.map do |letter|
 
         newLetterOrd = letter.ord + @key
         
-
         if letter.ord >= 97 && letter.ord <= 122                        # if lower case letter
+
             newLetterOrd = newLetterOrd - 26 if newLetterOrd > 122      # loop from z - a if necessary
+
         elsif letter.ord >= 65 && letter.ord <= 90                      # if upper case letter
+
             newLetterOrd = newLetterOrd - 26 if newLetterOrd > 90       # loop from Z - A if necessary
+
         else                                                            # if not letter
+
             newLetterOrd = letter.ord                                   # do not add key
+
         end
+
         newLetterOrd.chr
+
     end
+
     outputStr = outputArr.join('')
+    
     puts ""
     puts ""
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -29,7 +39,7 @@ def caesar_cipher(inputStr, key)
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts ""
     puts ""
-    
+
 end
 
 while true                                                              # user interface
